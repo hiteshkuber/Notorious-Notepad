@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import *
 from PyQt5 import uic
-from PyQt5.QtGui import QTextCursor, QFont
+from PyQt5.QtGui import QFont
 
 
 class MyGUI(QMainWindow):
