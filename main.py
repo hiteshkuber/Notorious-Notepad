@@ -1,6 +1,7 @@
 from PyQt5.QtWidgets import *
 from PyQt5 import uic
 from PyQt5.QtGui import QFont
+from PyQt5.QtCore import Qt
 
 
 class MyGUI(QMainWindow):
@@ -8,6 +9,17 @@ class MyGUI(QMainWindow):
     def __init__(self):
         super(MyGUI, self).__init__()
         uic.loadUi('editor.ui', self)
+
+        # Remove the title bar and border
+        self.setWindowFlags(Qt.FramelessWindowHint)
+
+        # Apply styles to QTextEdit
+        self.textEdit.setStyleSheet("""
+            background-color: #162633;
+            color: lime;
+            font-family: Arial;
+        """)
+
         self.show()
 
         self.setWindowTitle("Notorious Notepad v1")
