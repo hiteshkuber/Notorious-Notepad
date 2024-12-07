@@ -2,6 +2,12 @@
 <ui version="4.0">
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
+   <property name="styleSheet">
+    <string>
+     background-color: #162633;
+     color: white;
+    </string>
+   </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -10,23 +16,13 @@
     <height>600</height>
    </rect>
   </property>
-  <property name="windowTitle">
-   <string>Text Editor</string>
-  </property>
-  <widget class="QTextEdit" name="plainTextEdit">
-   <property name="font">
-    <font>
-     <family>Arial</family>
-    </font>
-   </property>
-  </widget>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QTextEdit" name="textEdit">
       <property name="styleSheet">
        <string>
-         background-color: #162633;
+         background-color: #2A3A4D;
          color: lime;
          font-family: Arial;
        </string>
