@@ -27,3 +27,8 @@ class MyGUI(QMainWindow):
         """Setup font size settings."""
         self.font_settings = FontSettings(self)
         self.font_settings.setup_edit_menu()
+
+    def resizeEvent(self, event):
+        """Override resize event to update button positions."""
+        self.window_controls.update_button_positions()
+        super(MyGUI, self).resizeEvent(event)  # Call the base class resize event

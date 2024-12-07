@@ -7,6 +7,10 @@ class WindowControls:
 
     def setup_window_control_button_positions(self):
         """Position the window control buttons (minimize, maximize, close)."""
+        self.update_button_positions()  # Initial positioning
+
+    def update_button_positions(self):
+        """Update button positions based on the window size."""
         new_x = self.get_right_corner()
         self.minimizeButton.move(new_x - 70, 6)
         self.maximizeButton.move(new_x - 40, 6)
