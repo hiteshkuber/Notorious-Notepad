@@ -13,16 +13,8 @@ class MyGUI(QMainWindow):
         # Remove the title bar and border
         self.setWindowFlags(Qt.FramelessWindowHint)
 
-        # Apply styles to QTextEdit
-        self.textEdit.setStyleSheet("""
-            background-color: #162633;
-            color: lime;
-            font-family: Arial;
-        """)
-
         self.show()
 
-        self.setWindowTitle("Notorious Notepad v1")
         self.actionFont_12pt.triggered.connect(lambda: self.change_size(12))
         self.actionFont_18pt.triggered.connect(lambda: self.change_size(18))
         self.actionFont_24pt.triggered.connect(lambda: self.change_size(24))

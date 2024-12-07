@@ -23,7 +23,15 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QTextEdit" name="textEdit"/>
+     <widget class="QTextEdit" name="textEdit">
+      <property name="styleSheet">
+       <string>
+         background-color: #162633;
+         color: lime;
+         font-family: Arial;
+       </string>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
@@ -56,6 +64,54 @@
    <addaction name="menuEdit"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QPushButton" name="greenButton">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>20</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string>QPushButton {
+        border-radius: 10px;
+        background-color: green;
+    }</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="yellowButton">
+   <property name="geometry">
+    <rect>
+     <x>35</x>
+     <y>10</y>
+     <width>20</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string>QPushButton {
+        border-radius: 10px;
+        background-color: yellow;
+    }</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="closeButton">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>10</y>
+     <width>20</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string>QPushButton {
+        border-radius: 10px;
+        background-color: red;
+    }</string>
+   </property>
+  </widget>
   <action name="actionNew">
   </action>
   <action name="actionOpen">
