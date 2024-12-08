@@ -2,7 +2,8 @@ from PyQt5.QtWidgets import QMainWindow
 from PyQt5 import uic
 from window_controls import WindowControls
 from font_settings import FontSettings
-from PyQt5.QtCore import Qt, QPoint
+from file_settings import FileSettings
+from PyQt5.QtCore import Qt
 
 
 class MyGUI(QMainWindow):
@@ -11,36 +12,12 @@ class MyGUI(QMainWindow):
         self.setup_ui()
         self.setup_window_controls()
         self.setup_font_settings()
+        self.setup_file_settings()
 
     def setup_ui(self):
         """Load the UI and setup initial window properties."""
         uic.loadUi('editor.ui', self)
         self.setWindowFlags(Qt.FramelessWindowHint)
-
-        # Enable dragging functionality for the menu bar
-        self.menubar.mousePressEvent = self.menuBarMousePressEvent
-        self.menubar.mouseMoveEvent = self.menuBarMouseMoveEvent
-        self.menubar.mouseReleaseEvent = self.menuBarMouseReleaseEvent
-
-        # Track dragging state
-        self.dragging = False
-        self.drag_start_position = QPoint()
-
-    def menuBarMousePressEvent(self, event):
-        if event.button() == Qt.LeftButton:
-            self.dragging = True
-            self.drag_start_position = event.globalPos() - self.frameGeometry().topLeft()
-            event.accept()
-
-    def menuBarMouseMoveEvent(self, event):
-        if self.dragging and event.buttons() == Qt.LeftButton:
-            self.move(event.globalPos() - self.drag_start_position)
-            event.accept()
-
-    def menuBarMouseReleaseEvent(self, event):
-        if event.button() == Qt.LeftButton:
-            self.dragging = False
-            event.accept()
 
     def setup_window_controls(self):
         """Setup window control buttons."""
@@ -52,6 +29,11 @@ class MyGUI(QMainWindow):
         """Setup font size settings."""
         self.font_settings = FontSettings(self)
         self.font_settings.setup_edit_menu()
+
+    def setup_file_settings(self):
+        """Setup file settings"""
+        self.file_settings = FileSettings(self)
+        self.file_settings.setup_edit_menu()
 
     def resizeEvent(self, event):
         """Override resize event to update button positions."""

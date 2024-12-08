@@ -46,7 +46,6 @@
     </property>
     <addaction name="actionOpen"/>
     <addaction name="actionSave"/>
-    <addaction name="actionSaveAs"/>
    </widget>
    <widget class="QMenu" name="menuEdit">
     <property name="title">
@@ -118,11 +117,6 @@
   <action name="actionSave">
    <property name="text">
     <string>Save</string>
-   </property>
-  </action>
-  <action name="actionSaveAs">
-   <property name="text">
-    <string>Save As</string>
    </property>
   </action>
   <action name="actionFont_12pt">
