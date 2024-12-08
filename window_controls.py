@@ -24,7 +24,10 @@ class WindowControls:
 
     def maximize_screen(self):
         """Maximize the window."""
-        self.window.showMaximized()
+        if self.window.isMaximized():
+            self.window.showNormal()
+        else:
+            self.window.showMaximized()
 
     def minimize_screen(self):
         """Minimize the window."""

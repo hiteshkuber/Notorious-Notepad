@@ -2,7 +2,7 @@ from PyQt5.QtWidgets import QMainWindow
 from PyQt5 import uic
 from window_controls import WindowControls
 from font_settings import FontSettings
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt, QPoint
 
 
 class MyGUI(QMainWindow):
@@ -16,6 +16,31 @@ class MyGUI(QMainWindow):
         """Load the UI and setup initial window properties."""
         uic.loadUi('editor.ui', self)
         self.setWindowFlags(Qt.FramelessWindowHint)
+
+        # Enable dragging functionality for the menu bar
+        self.menubar.mousePressEvent = self.menuBarMousePressEvent
+        self.menubar.mouseMoveEvent = self.menuBarMouseMoveEvent
+        self.menubar.mouseReleaseEvent = self.menuBarMouseReleaseEvent
+
+        # Track dragging state
+        self.dragging = False
+        self.drag_start_position = QPoint()
+
+    def menuBarMousePressEvent(self, event):
+        if event.button() == Qt.LeftButton:
+            self.dragging = True
+            self.drag_start_position = event.globalPos() - self.frameGeometry().topLeft()
+            event.accept()
+
+    def menuBarMouseMoveEvent(self, event):
+        if self.dragging and event.buttons() == Qt.LeftButton:
+            self.move(event.globalPos() - self.drag_start_position)
+            event.accept()
+
+    def menuBarMouseReleaseEvent(self, event):
+        if event.button() == Qt.LeftButton:
+            self.dragging = False
+            event.accept()
 
     def setup_window_controls(self):
         """Setup window control buttons."""
