@@ -1,5 +1,6 @@
 from PyQt5.QtGui import QFont
 
+
 class FontSettings:
     def __init__(self, window):
         self.window = window
